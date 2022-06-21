@@ -1,36 +1,41 @@
-<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+<div class="container">
+  <div class="center">
+    <div class="box">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Login: </mat-label>
+          <input
+            matInput
+            placeholder="Preencha o Login"
+            [formControl]="login"
+            required
+          />
+          <mat-error *ngIf="login.invalid"
+            >O campo login é obrigatório</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Senha: </mat-label>
+          <input
+            matInput
+            placeholder="Preencha a Senha"
+            [formControl]="senha"
+            required
+          />
+          <mat-error *ngIf="senha.invalid"
+            >O campo senha é obrigatório</mat-error
+          >
+        </mat-form-field>
+      </div>
 
-<div style="margin-left: 10px;padding-top: 10px;">
-  <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Login: </mat-label>
-      <input
-        matInput
-        placeholder="Preencha o Login"
-        [formControl]="login"
-        required
-      />
-      <mat-error *ngIf="login.invalid">O campo login é obrigatório</mat-error>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Senha: </mat-label>
-      <input
-        matInput
-        placeholder="Preencha a Senha"
-        [formControl]="senha"
-        required
-      />
-      <mat-error *ngIf="senha.invalid">O campo senha é obrigatório</mat-error>
-    </mat-form-field>
-  </div>
-
-  <div style="margin-top: 10px; margin-bottom: 10px">
-    <button (click)="logar()">Logar</button>
+      <div style="margin-top: 10px; margin-bottom: 10px">
+        <button (click)="logar()">Logar</button>
+      </div>
+    </div>
   </div>
 </div>
-
 
 <table
   mat-table
